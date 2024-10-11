@@ -66,10 +66,9 @@ jobs:
         export GITHUB_REPO=${{ github.repository }}
         export ${{ github.event.inputs.build_options }}
         bash <(curl -sS https://raw.githubusercontent.com/${{ github.repository }}/master/openwrt/build.sh) dev ${{ github.event.inputs.device }}
-        cd openwrt
-        tags=$(git describe --abbrev=0 --tags)
         kernel=$(curl -s "https://raw.githubusercontent.com/${{ github.repository }}/master/tags/kernel-6.12" | awk -F"LINUX_KERNEL_HASH-| =" '/LINUX_KERNEL_HASH/{print $2}')
-        echo "latest_release=$tags" >>$GITHUB_ENV
+        tags=v24.10 
+        echo "latest_release=$tags-k$kernel" >>$GITHUB_ENV
 
     - name: Extensive logs after a failed compilation
       working-directory: /builder
@@ -122,3 +121,21 @@ jobs:
         replacesArtifacts: true
         token: ${{ secrets.GITHUB_TOKEN }}
         artifacts: ${{ env.WORKDIR }}/rom/*
+
+    - name: Upload to Filen
+      id: upload
+      continue-on-error: true
+      working-directory: /builder/rom
+      timeout-minutes: 10
+      run: | 
+        sudo curl -skLo /bin/filen-cli https://github.com/FilenCloudDienste/filen-cli/releases/download/v0.0.12/filen-cli-v0.0.12-linux-x64
+        sudo chmod 0755 /bin/filen-cli
+        export FILEN_EMAIL="${{ secrets.FILEN_EMAIL }}"
+        export FILEN_PASSWORD="${{ secrets.FILEN_PWD }}"
+        for FILE in *; do
+        if [ -f "$FILE" ]; then
+          echo "Uploading: $FILE"
+          filen-cli upload "$FILE" OpenWrt/OpenWrt-24.10
+        fi
+        done
+        filen-cli ls -l OpenWrt/OpenWrt-24.10
