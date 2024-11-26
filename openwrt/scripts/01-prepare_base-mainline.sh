@@ -3,7 +3,7 @@
 #################################################################
 
 # autocore
-git clone https://$github/8688Add/autocore-arm -b openwrt-24.10 package/system/autocore
+git clone https://$github/sbwml/autocore-arm -b openwrt-24.10 package/system/autocore
 
 # rockchip - target - r4s/r5s only
 rm -rf target/linux/rockchip
