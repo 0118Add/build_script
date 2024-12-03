@@ -92,10 +92,6 @@ git clone --depth=1 -b openwrt-24.10 https://github.com/sbwml/luci-theme-argon p
 sed -i 's/Argon 主题设置/主题设置/g' package/new/luci-theme-argon/luci-app-argon-config/po/zh_Hans/argon-config.po
 
 # iperf3
-if [ "$version" = "rc2" ]; then
-    rm -rf feeds/packages/net/iperf3
-    cp -a ../master/packages/net/iperf3 feeds/packages/net/iperf3
-fi
 sed -i "s/D_GNU_SOURCE/D_GNU_SOURCE -funroll-loops/g" feeds/packages/net/iperf3/Makefile
 
 # custom packages
