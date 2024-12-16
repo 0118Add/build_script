@@ -99,7 +99,7 @@ sed -i "s/D_GNU_SOURCE/D_GNU_SOURCE -funroll-loops/g" feeds/packages/net/iperf3/
 
 # custom packages
 rm -rf feeds/packages/utils/coremark
-rm -rf feeds/packages/net/zerotier
+#rm -rf feeds/packages/net/zerotier
 git clone https://$github/8688Add/openwrt_pkgs package/new/custom --depth=1
 # coremark - prebuilt with gcc15
 if [ "$platform" = "rk3568" ]; then
