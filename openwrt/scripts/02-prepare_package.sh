@@ -122,10 +122,10 @@ git clone https://$github/sbwml/feeds_packages_utils_unzip feeds/packages/utils/
 git clone https://$github/sbwml/package_kernel_tcp-brutal package/kernel/tcp-brutal
 
 # 克隆Lean-luci仓库
-git clone --depth=1 -b openwrt-23.05 https://github.com/coolsnowwolf/luci lean-luci
-cp -rf lean-luci/applications/luci-app-zerotier feeds/luci/applications/luci-app-zerotier
-ln -sf ../../../feeds/luci/applications/luci-app-zerotier ./package/feeds/luci/luci-app-zerotier
-sed -i 's/vpn/services/g' feeds/luci/applications/luci-app-zerotier/root/usr/share/luci/menu.d/luci-app-zerotier.json
+#git clone --depth=1 -b openwrt-23.05 https://github.com/coolsnowwolf/luci lean-luci
+#cp -rf lean-luci/applications/luci-app-zerotier feeds/luci/applications/luci-app-zerotier
+#ln -sf ../../../feeds/luci/applications/luci-app-zerotier ./package/feeds/luci/luci-app-zerotier
+#sed -i 's/vpn/services/g' feeds/luci/applications/luci-app-zerotier/root/usr/share/luci/menu.d/luci-app-zerotier.json
 
 # 克隆immortalwrt-luci仓库
 git clone --depth=1 -b openwrt-23.05 https://github.com/immortalwrt/luci.git immortalwrt-luci
@@ -149,8 +149,8 @@ ln -sf ../../../feeds/packages/net/dae ./package/feeds/packages/dae
 #ln -sf ../../../feeds/packages/net/daed ./package/feeds/packages/daed
 cp -rf immortalwrt-packages/net/smartdns feeds/packages/net/smartdns
 ln -sf ../../../feeds/packages/net/smartdns ./package/feeds/packages/smartdns
-cp -rf immortalwrt-packages/net/zerotier feeds/packages/net/zerotier
-ln -sf ../../../feeds/packages/net/zerotier ./package/feeds/packages/zerotier
+#cp -rf immortalwrt-packages/net/zerotier feeds/packages/net/zerotier
+#ln -sf ../../../feeds/packages/net/zerotier ./package/feeds/packages/zerotier
 
 # net.netfilter.nf_conntrack_max from 16384 to 65535
 sed -i 's/net.netfilter.nf_conntrack_max=.*/net.netfilter.nf_conntrack_max=65535/g' package/kernel/linux/files/sysctl-nf-conntrack.conf
