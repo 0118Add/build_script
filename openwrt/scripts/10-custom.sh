@@ -1,19 +1,16 @@
 #!/bin/bash
-
-# 自定义脚本
-#!/bin/bash
 # 自定义脚本
 # mihomo
-if curl -s "$mirror/openwrt/24-config-common" | grep -q "^CONFIG_PACKAGE_luci-app-mihomo=y"; then
-    git clone https://$github/morytyann/OpenWrt-mihomo package/new/openwrt-mihomo
-    mkdir -p files/etc/mihomo/run/ui
-    curl -Lso files/etc/mihomo/run/Country.mmdb https://$github/NobyDa/geoip/raw/release/Private-GeoIP-CN.mmdb
-    curl -Lso files/etc/mihomo/run/GeoIP.dat https://$github/MetaCubeX/meta-rules-dat/releases/download/latest/geoip-lite.dat
-    curl -Lso files/etc/mihomo/run/GeoSite.dat https://$github/MetaCubeX/meta-rules-dat/releases/download/latest/geosite.dat
-    curl -Lso metacubexd-gh-pages.tar.gz https://$github/MetaCubeX/metacubexd/archive/refs/heads/gh-pages.tar.gz
-    tar zxf metacubexd-gh-pages.tar.gz
-    mv metacubexd-gh-pages files/etc/mihomo/run/ui/metacubexd
-fi
+#if curl -s "$mirror/openwrt/24-config-common" | grep -q "^CONFIG_PACKAGE_luci-app-mihomo=y"; then
+    #git clone https://$github/morytyann/OpenWrt-mihomo package/new/openwrt-mihomo
+    #mkdir -p files/etc/mihomo/run/ui
+    #curl -Lso files/etc/mihomo/run/Country.mmdb https://$github/NobyDa/geoip/raw/release/Private-GeoIP-CN.mmdb
+    #curl -Lso files/etc/mihomo/run/GeoIP.dat https://$github/MetaCubeX/meta-rules-dat/releases/download/latest/geoip-lite.dat
+    #curl -Lso files/etc/mihomo/run/GeoSite.dat https://$github/MetaCubeX/meta-rules-dat/releases/download/latest/geosite.dat
+    #curl -Lso metacubexd-gh-pages.tar.gz https://$github/MetaCubeX/metacubexd/archive/refs/heads/gh-pages.tar.gz
+    #tar zxf metacubexd-gh-pages.tar.gz
+    #mv metacubexd-gh-pages files/etc/mihomo/run/ui/metacubexd
+#fi
 
 # comment out the following line to restore the full description
 sed -i '/# timezone/i grep -q '\''/tmp/sysinfo/model'\'' /etc/rc.local || sudo sed -i '\''/exit 0/i [ "$(cat /sys\\/class\\/dmi\\/id\\/sys_vendor 2>\\/dev\\/null)" = "Default string" ] \&\& echo "x86_64" > \\/tmp\\/sysinfo\\/model'\'' /etc/rc.local\n' package/new/default-settings/default/zzz-default-settings
