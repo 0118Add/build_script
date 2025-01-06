@@ -43,7 +43,7 @@ popd
 git clone --depth=1 -b dev https://github.com/vernesong/OpenClash package/new/OpenClash
 
 # ddns-go
-git clone https://github.com/sirpdboy/luci-app-ddns-go package/luci-app-ddns-go
+git clone https://github.com/sirpdboy/luci-app-ddns-go package/new/luci-app-ddns-go
 
 # netkit-ftp
 git clone https://$github/sbwml/package_new_ftp package/new/ftp
@@ -129,8 +129,8 @@ git clone https://$github/sbwml/package_kernel_tcp-brutal package/kernel/tcp-bru
 
 # 克隆immortalwrt-luci仓库
 git clone --depth=1 -b openwrt-24.10 https://github.com/immortalwrt/luci.git immortalwrt-luci
-cp -rf immortalwrt-luci/applications/luci-app-cpufreq feeds/luci/applications/luci-app-cpufreq
-ln -sf ../../../feeds/luci/applications/luci-app-cpufreq ./package/feeds/luci/luci-app-cpufreq
+#cp -rf immortalwrt-luci/applications/luci-app-cpufreq feeds/luci/applications/luci-app-cpufreq
+#ln -sf ../../../feeds/luci/applications/luci-app-cpufreq ./package/feeds/luci/luci-app-cpufreq
 #cp -rf immortalwrt-luci/applications/luci-app-daed feeds/luci/applications/luci-app-daed
 #ln -sf ../../../feeds/luci/applications/luci-app-daed ./package/feeds/luci/luci-app-daed
 cp -rf immortalwrt-luci/applications/luci-app-smartdns feeds/luci/applications/luci-app-smartdns
