@@ -103,7 +103,7 @@ CONFIG_NGINX_STREAM_REAL_IP=y
 # CONFIG_PACKAGE_luci-app-aria2 is not set
 CONFIG_PACKAGE_luci-app-autoreboot=y
 # CONFIG_PACKAGE_luci-app-commands is not set
-# CONFIG_PACKAGE_luci-app-cpufreq is not set
+CONFIG_PACKAGE_luci-app-cpufreq=y
 # CONFIG_PACKAGE_luci-app-daed is not set
 CONFIG_PACKAGE_dae=y
 # CONFIG_PACKAGE_luci-app-daed-next is not set
