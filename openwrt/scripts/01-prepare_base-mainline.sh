@@ -7,11 +7,8 @@ git clone https://$github/sbwml/autocore-arm -b openwrt-24.10 package/system/aut
 
 # rockchip - target - r4s/r5s only
 rm -rf target/linux/rockchip
-if [ "$(whoami)" = "sbwml" ]; then
-    git clone https://$gitea/sbwml/target_linux_rockchip-6.x target/linux/rockchip -b openwrt-24.10
-else
-    git clone https://"$git_name":"$git_password"@$gitea/sbwml/target_linux_rockchip-6.x target/linux/rockchip -b openwrt-24.10
-fi
+#git clone https://nanopi:nanopi@$gitea/sbwml/target_linux_rockchip-6.x target/linux/rockchip -b openwrt-24.10
+git clone https://$github/jianyun8023/target_linux_rockchip-6.x target/linux/rockchip -b openwrt-24.10
 
 # bpf-headers - 6.12
 sed -ri "s/(PKG_PATCHVER:=)[^\"]*/\16.12/" package/kernel/bpf-headers/Makefile
